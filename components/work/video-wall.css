@@ -1,0 +1,337 @@
+.video-wall {
+  --row-height: clamp(210px, 27.5vh, 290px);
+  background: #000;
+  position: relative;
+  overflow: visible;
+  overflow-x: clip;
+  color: #d0d0d0;
+}
+
+.wall-track {
+  position: relative;
+  width: 100%;
+}
+
+.wall-pin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: clamp(12px, 2.5vh, 28px);
+  overflow: hidden;
+  background: #000;
+  gap: 14px;
+}
+
+/* Row containers */
+.wall-row-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: var(--row-height);
+  flex-shrink: 0;
+}
+
+.wall-top-container {
+  z-index: 5;
+}
+
+/* Top row contains the intro heading */
+.wall-intro {
+  position: relative;
+  z-index: 6;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 40px 0 6vw;
+  background: #000;
+}
+
+.wall-intro::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -55px;
+  width: 55px;
+  background: linear-gradient(90deg, #000 20%, transparent 100%);
+  pointer-events: none;
+}
+
+.wall-intro h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(26px, 2.8vw, 48px);
+  font-weight: 450;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: #f0f0f0;
+  white-space: nowrap;
+}
+
+.wall-intro h2 em {
+  display: block;
+  font-size: 1.12em;
+  line-height: 1.05;
+  color: #727272;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin-top: 5px;
+}
+
+/* Strips */
+.wall-row {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+  width: max-content;
+  height: var(--row-height);
+  will-change: transform;
+}
+
+/* Video cards */
+.wall-card {
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #101010;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.wall-card.portrait {
+  width: calc(var(--row-height) * 0.563);
+}
+
+.wall-card.landscape {
+  width: calc(var(--row-height) * 1.778);
+}
+
+.wall-card > img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.72);
+  transition: filter 0.4s ease, transform 0.6s ease;
+}
+
+.wall-card:hover > img,
+.wall-card:focus-visible > img {
+  filter: brightness(0.96);
+  transform: scale(1.03);
+}
+
+.wall-card-hover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+}
+
+.wall-card:hover .wall-card-hover,
+.wall-card:focus-visible .wall-card-hover {
+  opacity: 1;
+}
+
+.wall-card-hover > span {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(20, 20, 20, 0.65);
+  backdrop-filter: blur(8px);
+  width: 46px;
+  height: 46px;
+  color: #fff;
+}
+
+.wall-card-hover strong {
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  max-width: 90%;
+}
+
+/* Bottom Gradient Fade over cards — exact match to pilea.agency */
+.wall-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(320px, 46vh, 460px);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.35) 18%,
+    rgba(0, 0, 0, 0.78) 40%,
+    rgba(0, 0, 0, 0.95) 62%,
+    #000000 80%,
+    #000000 100%
+  );
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* The 4 benefits rendered right over the dark fade at the bottom */
+.wall-benefits-overlay {
+  position: absolute;
+  bottom: clamp(22px, 3.8vh, 40px);
+  left: 0;
+  right: 0;
+  z-index: 25;
+  pointer-events: auto;
+}
+
+.wall-benefits-grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2.5vw, 40px);
+}
+
+.benefit-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-item h4 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(13.5px, 1.05vw, 16px);
+  font-weight: 550;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.benefit-icon {
+  color: #ffffff;
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+
+.benefit-item p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(11.5px, 0.82vw, 13px);
+  line-height: 1.45;
+  color: #8c8c8c;
+  letter-spacing: -0.15px;
+  margin: 0;
+  max-width: 290px;
+}
+
+/* Radix Dialog for Video Cards */
+.wall-dialog {
+  width: min(1000px, calc(100% - 32px));
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 28px;
+  z-index: 101;
+}
+
+.wall-dialog h2 {
+  font-size: 24px;
+  margin: 6px 35px 8px 0;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+.wall-dialog .wall-description {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 18px;
+}
+
+.wall-dialog iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: 0;
+  border-radius: 8px;
+  background: #000;
+  display: block;
+}
+
+.wall-dialog.portrait-dialog {
+  width: min(420px, calc(100% - 32px));
+}
+
+.portrait-dialog > img {
+  max-height: 65dvh;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+@media (max-width: 1000px) {
+  .video-wall {
+    --row-height: 160px;
+  }
+  .wall-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .video-wall {
+    --row-height: 130px;
+  }
+  .wall-intro {
+    padding: 0 16px;
+    gap: 16px;
+  }
+  .wall-intro h2 {
+    font-size: 22px;
+    white-space: normal;
+  }
+  .wall-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .benefit-item p {
+    font-size: 11px;
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wall-pin {
+    position: relative;
+    height: auto;
+    padding: 40px 0;
+  }
+  .wall-row {
+    will-change: auto;
+  }
+  .wall-bottom-fade {
+    position: relative;
+    height: 80px;
+  }
+  .wall-benefits-overlay {
+    position: relative;
+    bottom: auto;
+    padding: 20px 0;
+  }
+}

@@ -1,0 +1,48 @@
+.booking{background:#000;color:#f1f1e9;padding:120px clamp(24px,6vw,90px) 110px}
+.booking-head{max-width:1240px;margin:0 auto 36px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.booking-head h2{font-size:clamp(32px,4.2vw,54px);font-weight:500;letter-spacing:-2px;line-height:1.08;margin:0}
+.booking-head h2 em{color:#8f9484}
+.booking-mail{background:#141513;border:1px solid #ffffff1c;color:#fff;border-radius:30px;padding:12px 22px;font-size:14px;white-space:nowrap}
+.booking-mail:hover{background:#1e1f1c}
+.booking-card{max-width:1240px;margin:0 auto;background:#121311;border:1px solid #ffffff12;border-radius:20px;display:grid;grid-template-columns:minmax(260px,340px) 1fr minmax(240px,300px);overflow:hidden}
+.booking-profile{padding:34px 30px;border-right:1px solid #ffffff0e}
+.booking-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#5a2c1c,#241210);display:inline-flex;align-items:center;justify-content:center;font-weight:650;margin-bottom:14px}
+.booking-host{font-size:14px;color:#b8bcad;display:block;margin-bottom:10px}
+.booking-profile h3{font-size:26px;letter-spacing:-.8px;line-height:1.15;margin:0 0 12px}
+.booking-profile p{font-size:14px;color:#cfd0c7}
+.booking-muted{color:#8a8d82!important}
+.booking-profile ul{list-style:none;margin:22px 0 0;padding:18px 0 0;border-top:1px solid #ffffff0e;display:grid;gap:12px;font-size:14px;color:#cfd0c7}
+.booking-profile li{display:flex;align-items:center;gap:10px}
+.booking-cal{padding:30px;border-right:1px solid #ffffff0e;min-width:0}
+.booking-cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.booking-cal-head strong{font-size:19px;letter-spacing:-.3px}
+.booking-cal-head strong span{color:#8a8d82;font-weight:500}
+.booking-cal-head div{display:flex;gap:6px}
+.booking-cal-head button{background:transparent;border:1px solid #ffffff14;border-radius:10px;color:#cfd0c7;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
+.booking-cal-head button:hover{border-color:#ffffff30;color:#fff}
+.booking-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center}
+.booking-dow{font-size:11px;letter-spacing:1.5px;color:#cfd0c7;padding:6px 0}
+.booking-day{position:relative;aspect-ratio:1;border:0;border-radius:12px;background:transparent;color:#ffffff40;font-size:15px}
+.booking-day.open{background:#2b2c28;color:#fff}
+.booking-day.open:hover{background:#363732}
+.booking-day:disabled{cursor:default}
+.booking-day.sel{background:#f1f1e9;color:#111;font-weight:650}
+.booking-day.sel i{position:absolute;left:50%;bottom:8px;width:5px;height:5px;border-radius:50%;background:#111;transform:translateX(-50%)}
+.booking-slots{padding:30px 26px;display:flex;flex-direction:column;min-width:0}
+.booking-slots-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.booking-slots-head strong{font-size:17px}
+.booking-toggle{display:flex;background:#1c1d1a;border-radius:12px;padding:3px}
+.booking-toggle button{background:transparent;border:0;border-radius:9px;color:#8a8d82;font-size:13px;padding:6px 12px}
+.booking-toggle button.on{background:#2e2f2b;color:#fff}
+.booking-slot-list{display:grid;gap:10px;overflow-y:auto;max-height:380px;padding-right:2px}
+.booking-slot{background:transparent;border:1px solid #ffffff1c;border-radius:12px;color:#f1f1e9;padding:13px;font-size:15px}
+.booking-slot:hover{border-color:#ffffff45}
+.booking-slot.sel{background:#f1f1e9;color:#111;font-weight:650;border-color:#f1f1e9}
+.booking-confirm{margin-top:14px;border-radius:12px;background:#d7f6a4;color:#111;font-weight:650;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px;font-size:15px}
+.booking-confirm.disabled{background:#2b2c28;color:#8a8d82;cursor:default}
+.booking-note{margin-top:10px;font-size:12px;color:#8a8d82}
+@media(max-width:1020px){
+.booking-card{grid-template-columns:1fr}
+.booking-profile,.booking-cal{border-right:0;border-bottom:1px solid #ffffff0e}
+.booking-head{flex-direction:column;align-items:flex-start}
+}
