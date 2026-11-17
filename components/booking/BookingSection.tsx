@@ -21,10 +21,7 @@ function sameDay(a: Date, b: Date) {
 }
 
 function isAvailable(d: Date, today: Date) {
-  const day = d.getDay();
-  const weekday = day >= 1 && day <= 5;
-  const notPast = d >= new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  return weekday && notPast;
+  return d >= new Date(today.getFullYear(), today.getMonth(), today.getDate());
 }
 
 /** Deterministic per-date rotation so each day shows a slightly different set. */
@@ -42,6 +39,28 @@ function formatSlot(minutes: number, hour12: boolean) {
   const suffix = h >= 12 ? 'pm' : 'am';
   const h12 = h % 12 === 0 ? 12 : h % 12;
   return `${h12}:${mm}${suffix}`;
+}
+
+/** Build a Calendly URL that opens the selected day and time. */
+function calendlySlotUrl(base: string, date: Date, minutes: number) {
+  const yyyy = date.getFullYear();
+  const mo = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  const hh = String(Math.floor(minutes / 60)).padStart(2, '0');
+  const mi = String(minutes % 60).padStart(2, '0');
+
+  const local = new Date(yyyy, date.getMonth(), date.getDate(), Number(hh), Number(mi), 0, 0);
+  const offset = -local.getTimezoneOffset();
+  const sign = offset >= 0 ? '+' : '-';
+  const abs = Math.abs(offset);
+  const oh = String(Math.floor(abs / 60)).padStart(2, '0');
+  const om = String(abs % 60).padStart(2, '0');
+
+  const url = new URL(base);
+  url.pathname = `${url.pathname.replace(/\/$/, '')}/${yyyy}-${mo}-${dd}T${hh}:${mi}:00${sign}${oh}:${om}`;
+  url.searchParams.set('month', `${yyyy}-${mo}`);
+  url.searchParams.set('date', `${yyyy}-${mo}-${dd}`);
+  return url.toString();
 }
 
 export default function BookingSection() {
@@ -88,7 +107,7 @@ export default function BookingSection() {
 
   const dateLabel = `${DAY_NAMES[selected.getDay()]} ${selected.getDate()}${ordinal(selected.getDate())}`;
   const confirmHref = BOOKING.calendlyUrl
-    ? BOOKING.calendlyUrl
+    ? calendlySlotUrl(BOOKING.calendlyUrl, selected, slot ?? CANDIDATE_SLOTS[0])
     : `mailto:${BOOKING.contactEmail}?subject=${encodeURIComponent(
         `${BOOKING.eventTitle} — ${dateLabel}${slot !== null ? ' · ' + formatSlot(slot, hour12) : ''}`
       )}&body=${encodeURIComponent(
