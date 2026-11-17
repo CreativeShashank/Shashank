@@ -43,7 +43,7 @@ export default function VideoWall() {
 
             <motion.div className="wall-row wall-top-row" style={reduced ? {} : { x: topX }}>
               {topRowFilms.map((film, i) => (
-                <VideoCard key={film.image + i} film={film} />
+                <VideoCard key={film.id + i} film={film} />
               ))}
             </motion.div>
           </div>
@@ -52,7 +52,7 @@ export default function VideoWall() {
           <div className="wall-row-container">
             <motion.div className="wall-row wall-middle-row" style={reduced ? {} : { x: middleX }}>
               {middleRowFilms.map((film, i) => (
-                <VideoCard key={film.image + i} film={film} />
+                <VideoCard key={film.id + i} film={film} />
               ))}
             </motion.div>
           </div>
@@ -61,7 +61,7 @@ export default function VideoWall() {
           <div className="wall-row-container">
             <motion.div className="wall-row wall-bottom-row" style={reduced ? {} : { x: bottomX }}>
               {bottomRowFilms.map((film, i) => (
-                <VideoCard key={film.image + i} film={film} />
+                <VideoCard key={film.id + i} film={film} />
               ))}
             </motion.div>
           </div>

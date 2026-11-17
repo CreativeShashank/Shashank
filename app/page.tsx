@@ -3,8 +3,8 @@
 import { MotionConfig } from 'framer-motion';
 import { ReferenceHero } from '@/components';
 import { VideoWall } from '@/components';
+import { PhotoShotsSection } from '@/components';
 import { JourneySection } from '@/components';
-import { ClientsSection } from '@/components';
 import { BookingSection } from '@/components';
 import { SiteFooter } from '@/components';
 import { SiteNav } from '@/components';
@@ -21,8 +21,8 @@ export default function Home() {
       <main id="main">
         <ReferenceHero cta={<a className="button light" href="#booking">Book a call<span className="button-dot" /></a>} />
         <VideoWall />
+        <PhotoShotsSection />
         <JourneySection />
-        <ClientsSection />
         <BookingSection />
       </main>
       <SiteFooter />

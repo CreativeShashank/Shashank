@@ -6,7 +6,11 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { Pause, Play, X, VolumeX } from 'lucide-react';
 import Reveal from '../ui/Reveal';
 import { BRAND } from '@/data/brand';
+import { driveThumbnailUrl, driveVideoUrl } from '@/data/drive';
 import './testimonial.css';
+
+const TESTIMONIAL_ID = '1dwkKdYXXhHRzq0e4W9W4DF-pGde2mMpc';
+const poster = driveThumbnailUrl(TESTIMONIAL_ID, 1200);
 
 export default function TestimonialSection() {
   const ref = useRef<HTMLElement>(null);
@@ -21,9 +25,9 @@ export default function TestimonialSection() {
       <div className="testimonial-head">
         <Reveal>
           <h2>
-            What made it possible
+            A reel built to be remembered
             <br />
-            <em>for Shubham Sharma.</em>
+            <em>for Preeti Jhangiani.</em>
           </h2>
         </Reveal>
         <Dialog.Root>
@@ -34,15 +38,17 @@ export default function TestimonialSection() {
               <Dialog.Close className="icon-button close" aria-label="Close video">
                 <X />
               </Dialog.Close>
-              <Dialog.Title>Shubham Sharma — edited by {BRAND.name}</Dialog.Title>
+              <Dialog.Title>Preeti Jhangiani — edited by {BRAND.name}</Dialog.Title>
               <Dialog.Description className="wall-description">
-                YouTuber · Content creator · 180,000 subscribers
+                Actor · Content creator · Promo reel
               </Dialog.Description>
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/VTJMOtnq-tA?autoplay=1&rel=0"
-                title="Shubham Sharma testimonial"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowFullScreen
+              <video
+                src={driveVideoUrl(TESTIMONIAL_ID)}
+                poster={poster}
+                title="Preeti Jhangiani promo reel"
+                controls
+                autoPlay
+                playsInline
               />
             </Dialog.Content>
           </Dialog.Portal>
@@ -50,12 +56,9 @@ export default function TestimonialSection() {
       </div>
 
       <motion.div className="testimonial-card" style={reduced ? {} : { rotate: tilt, y: rise }}>
-        <img
-          src="https://framerusercontent.com/images/DddjVAjzaOaICmhwEZm9Yrn2g.jpg?scale-down-to=1024"
-          alt="Shubham Sharma talking to camera"
-        />
+        <img src={poster} alt="Preeti Jhangiani promo reel" />
         <span className="testimonial-brand">
-          <strong>SHUBHAM</strong>
+          <strong>PREETI</strong>
           <small>Edited by {BRAND.name}</small>
         </span>
         <span className="testimonial-controls" aria-hidden="true">
@@ -64,20 +67,20 @@ export default function TestimonialSection() {
           <i><Play size={15} fill="currentColor" /></i>
         </span>
         <span className="testimonial-tags">
-          <span>YouTuber</span>
+          <span>Actor</span>
           <span>Content creator</span>
-          <span>180,000 subscribers</span>
+          <span>Promo reel</span>
         </span>
       </motion.div>
 
       <div className="testimonial-stats">
         <div>
-          <strong>Publishing one of his best videos</strong>
-          <p>without spending his weeks editing it himself.</p>
+          <strong>A promo reel with a strong first impression</strong>
+          <p>cut for attention from the very first frame.</p>
         </div>
         <div>
-          <strong>Among his most-viewed uploads</strong>
-          <p>a comparison format that passed 244K views in 6 months.</p>
+          <strong>Delivered platform-ready</strong>
+          <p>for social, press and brand use.</p>
         </div>
       </div>
     </section>

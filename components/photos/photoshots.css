@@ -1,0 +1,247 @@
+.photos {
+  position: relative;
+  background: #000;
+  color: #f1f1e9;
+  padding: 130px clamp(24px, 6vw, 90px) 120px;
+  overflow: hidden;
+}
+
+.photos-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(56% 32% at 50% 0%, #d7f6a412 0%, transparent 72%);
+  pointer-events: none;
+}
+
+.photos-head {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto 58px;
+}
+
+.photos-head .eyebrow {
+  margin-bottom: 20px;
+}
+
+.photos-head h2 {
+  font-size: clamp(38px, 4.6vw, 62px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1.04;
+  margin: 0 0 18px;
+}
+
+.photos-head h2 em {
+  color: #8f9484;
+}
+
+.photos-head p {
+  color: #96998f;
+  font-size: 15px;
+  max-width: 46ch;
+  margin: 0;
+}
+
+.photos-grid {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.photos-cell {
+  grid-column: span 4;
+  min-width: 0;
+}
+
+.photos-cell:nth-child(3n + 1) {
+  grid-column: span 5;
+}
+
+.photos-cell:nth-child(3n + 2) {
+  grid-column: span 3;
+}
+
+.photos-cell:nth-child(3n) {
+  grid-column: span 4;
+}
+
+.photos-cell figure {
+  position: relative;
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #ffffff16;
+  background: #101010;
+  aspect-ratio: 4 / 5;
+}
+
+.photos-cell:nth-child(3n + 1) figure {
+  aspect-ratio: 5 / 6;
+}
+
+.photos-cell:nth-child(3n + 2) figure {
+  aspect-ratio: 3 / 4;
+}
+
+.photos-cell:nth-child(3n) figure {
+  aspect-ratio: 1 / 1;
+}
+
+.photos-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.76) saturate(0.9);
+  transform: scale(1.01);
+  transition: filter 0.5s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.photos-cell figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #000000b8 0%, transparent 42%);
+  pointer-events: none;
+}
+
+.photos-cell figure:hover img,
+.photos-cell figure:focus-within img {
+  filter: brightness(1) saturate(1);
+  transform: scale(1.07);
+}
+
+.photos-cell figcaption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.photos-cell figcaption span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f1f1e9;
+}
+
+.photos-cell figcaption small {
+  font-size: 11px;
+  color: #b8bcad;
+  white-space: nowrap;
+}
+
+.photos-more-wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.photos-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1px solid #ffffff24;
+  background: #141513;
+  color: #f1f1e9;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.photos-more:hover {
+  background: #1e1f1c;
+  border-color: #d7f6a455;
+  transform: translateY(-2px);
+}
+
+.photos-more svg {
+  transition: transform 0.3s ease;
+}
+
+.photos-more svg.rotated {
+  transform: rotate(180deg);
+}
+
+.photos-foot {
+  position: relative;
+  max-width: 1200px;
+  margin: 66px auto 0;
+  padding-top: 34px;
+  border-top: 1px solid #ffffff12;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.photos-foot p {
+  margin: 0;
+  font-size: clamp(22px, 2.5vw, 34px);
+  letter-spacing: -1px;
+  color: #f1f1e9;
+}
+
+.photos-foot p em {
+  color: #8f9484;
+}
+
+@media (max-width: 1000px) {
+  .photos-cell,
+  .photos-cell:nth-child(3n + 1),
+  .photos-cell:nth-child(3n + 2),
+  .photos-cell:nth-child(3n) {
+    grid-column: span 6;
+  }
+
+  .photos-cell figure,
+  .photos-cell:nth-child(3n + 1) figure,
+  .photos-cell:nth-child(3n + 2) figure,
+  .photos-cell:nth-child(3n) figure {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 640px) {
+  .photos {
+    padding-top: 96px;
+    padding-bottom: 90px;
+  }
+
+  .photos-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .photos-cell,
+  .photos-cell:nth-child(3n + 1),
+  .photos-cell:nth-child(3n + 2),
+  .photos-cell:nth-child(3n) {
+    grid-column: 1 / -1;
+  }
+
+  .photos-cell figure,
+  .photos-cell:nth-child(3n + 1) figure,
+  .photos-cell:nth-child(3n + 2) figure,
+  .photos-cell:nth-child(3n) figure {
+    aspect-ratio: 4 / 5;
+  }
+
+  .photos-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 48px;
+  }
+}

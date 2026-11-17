@@ -1,5 +1,5 @@
 .video-wall {
-  --row-height: clamp(210px, 27.5vh, 290px);
+  --row-height: clamp(190px, 25vh, 260px);
   background: #000;
   position: relative;
   overflow: visible;
@@ -41,7 +41,7 @@
 /* Top row contains the intro heading */
 .wall-intro {
   position: relative;
-  z-index: 6;
+  z-index: 1;
   flex: 0 0 auto;
   display: flex;
   align-items: center;
@@ -84,6 +84,8 @@
 
 /* Strips */
 .wall-row {
+  position: relative;
+  z-index: 2;
   display: flex;
   gap: 16px;
   flex-shrink: 0;
@@ -114,7 +116,8 @@
   width: calc(var(--row-height) * 1.778);
 }
 
-.wall-card > img {
+.wall-card > img,
+.wall-card > video.wall-thumb {
   display: block;
   object-fit: cover;
   width: 100%;
@@ -124,7 +127,9 @@
 }
 
 .wall-card:hover > img,
-.wall-card:focus-visible > img {
+.wall-card:hover > video.wall-thumb,
+.wall-card:focus-visible > img,
+.wall-card:focus-visible > video.wall-thumb {
   filter: brightness(0.96);
   transform: scale(1.03);
 }
@@ -263,10 +268,9 @@
   margin-bottom: 18px;
 }
 
-.wall-dialog iframe {
+.wall-dialog video {
   width: 100%;
   aspect-ratio: 16/9;
-  border: 0;
   border-radius: 8px;
   background: #000;
   display: block;
@@ -276,12 +280,13 @@
   width: min(420px, calc(100% - 32px));
 }
 
-.portrait-dialog > img {
-  max-height: 65dvh;
+.portrait-dialog video {
+  width: auto;
+  height: min(65dvh, 640px);
   max-width: 100%;
-  display: block;
+  aspect-ratio: 9/16;
   margin: 0 auto;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 @media (max-width: 1000px) {

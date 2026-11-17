@@ -37,8 +37,8 @@ export default function SiteNav() {
       <div className="site-nav-pill">
         <nav className="site-nav-side left" aria-label="Primary">
           <a href="#work">Work</a>
+          <a href="#photos">Photos</a>
           <a href="#process">Process</a>
-          <a href="#clients">Clients</a>
         </nav>
 
         <a href="#" className="site-nav-logo">

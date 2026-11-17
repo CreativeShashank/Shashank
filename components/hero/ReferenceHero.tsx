@@ -4,8 +4,11 @@ import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'fr
 import { Play, Pause, Info, Clock3, Download, Monitor, SlidersHorizontal, Globe, ThumbsUp, Flag, Check, Linkedin, Youtube, Instagram, Facebook, VolumeX, Volume2 } from 'lucide-react';
 import './reference-hero.css';
 import { BRAND } from '@/data/brand';
+import { reel } from '@/data/site';
+import { driveThumbnailUrl, driveVideoUrl } from '@/data/drive';
 
-const film = 'https://framerusercontent.com/assets/NgOTYKbKDompJnAO4YOGmggDUts.mp4';
+const film = driveVideoUrl(reel.id);
+const poster = driveThumbnailUrl(reel.id, 1600);
 const comments = [
   ['03:12', 'Love this transition!'],
   ['06:54', 'Can we punch up the subtitles here?'],
@@ -148,6 +151,7 @@ export default function ReferenceHero({ cta }: { cta: React.ReactNode }) {
             <video
               ref={video}
               src={film}
+              poster={poster}
               onLoadedMetadata={() => {
                 if (video.current) video.current.currentTime = Math.min(3, video.current.duration);
               }}
@@ -278,7 +282,7 @@ export default function ReferenceHero({ cta }: { cta: React.ReactNode }) {
                   }
             }
           >
-            <h3>Showreel_2026_Final.mp4</h3>
+            <h3>Kirti_Wedding_Highlight.mp4</h3>
             <p>{BRAND.name} · Oct 2026</p>
             <div className="export-block">
               <label><Flag size={15} /> Video status</label>

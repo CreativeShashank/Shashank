@@ -1,37 +1,39 @@
 export type Film = {
-  image: string;
+  id: string;
   title: string;
   portrait?: boolean;
-  youtube?: string;
 };
 
-export const reel = 'https://framerusercontent.com/assets/NgOTYKbKDompJnAO4YOGmggDUts.mp4';
+export const reel = {
+  id: '1nreeKRxVCUzmfETEkNgKype4m9p-MVy0',
+  title: 'Kirti — wedding highlight',
+};
 
 export const topRowFilms: Film[] = [
-  { image: 'nFwIKRz21HsXrPB5DiH73PuxfF4.png', title: 'A fresh perspective', portrait: true },
-  { image: 'WWBqPcu23uoiQvi152FOmtVoPNY.webp', title: 'The winning property story', youtube: 'v0viXme7oUU' },
-  { image: 'QZ8wp6rHj2ExQRy9p1VEizqTPg.png', title: 'A story in one minute', portrait: true },
-  { image: 'njWIFDhyhQ0baZSK2lO4Vz4Nsm0.jpg', title: 'GPT Vision — a new dimension', youtube: 'roQ23g5pcOE' },
-  { image: '8ePAZdrg9ILKZElVoK6TmaiILa0.png', title: 'Follow me — the podcast', portrait: true },
-  { image: '6Z3F3uG7AotT9nf0lp87JXPKtMs.webp', title: 'Exploring new ideas', youtube: 'bgNsTi6GbiM' },
+  { id: '11-lfZZJmDlaYeuXbILdT30tNmCSgyKS0', title: 'Mahadev — creator reel', portrait: true },
+  { id: '1nreeKRxVCUzmfETEkNgKype4m9p-MVy0', title: 'Kirti — wedding highlight' },
+  { id: '1f4hE5ptoyQ5o-6c-W1Sf_WKcYRpd72Ml', title: 'Mahima Chaudhry — promo reel', portrait: true },
+  { id: '1oKyZDqUX-KeHkGU3SJFdRlEQ6HVcgOGr', title: 'Divya & Kuldeep — pre-wedding' },
+  { id: '1dwkKdYXXhHRzq0e4W9W4DF-pGde2mMpc', title: 'Preeti Jhangiani — actor reel', portrait: true },
+  { id: '1Zen4zGnd1EBmubmXfqqEJ_O46Npy4gKr', title: 'Lemonji — product film' },
 ];
 
 export const middleRowFilms: Film[] = [
-  { image: 'xQVz2zBuuqF6ghGvTHJNk4Vk.png', title: 'The power of short-form', portrait: true },
-  { image: '8Ck5k19ckft2IfR2vA2c8mqkMs.png', title: '10 tips to grow your creativity', youtube: '9rVBVww5OwQ' },
-  { image: 'S3ksRZZbTPf9UEo7H7ujLG1V9gw.png', title: 'Ideas brought to life', portrait: true },
-  { image: 'MmJKK2TvoOWxzE371pw8lBEnI.jpg', title: 'At the heart of the encounter', youtube: 'KLugXLAdFjo' },
-  { image: 'vCGpZs8wtj5go24zgzaLK5iD9Y4.png', title: 'The world in motion', portrait: true },
-  { image: 'JeC98jY1JirKEmbcu8QTHD9tI.png', title: 'GPT-4 Vision', youtube: 't95aV_bBlLw' },
+  { id: '1um8zfO6B6WoxYoFSA58qrwCw_uXdIvAw', title: 'Sunil Grover — comedy reel', portrait: true },
+  { id: '10e0ENdgcuHdOMJtuprC9bpbCHroRua8p', title: 'Juhi & Ravi — wedding film' },
+  { id: '1Q2faPtZ6c0LwrsRHw9hSnypow-qWlOuC', title: 'Period cramps — awareness film', portrait: true },
+  { id: '1AXsHqhAJnwa7J4D5ECiyHv4TGrUSJII2', title: 'Anoopreeti — engagement film' },
+  { id: '18sVZe_SzTW2JE4ge_rBbfI4nygJmhRgP', title: 'Lavender Dress — fashion reel', portrait: true },
+  { id: '1iOExYT3-TMLYJ3GpX27MRogDUDGlSG5e', title: 'Lord Mobile — animation' },
 ];
 
 export const bottomRowFilms: Film[] = [
-  { image: '33nr3J5vimAyrOzEb3EAMX5Ozo.png', title: 'An honest conversation', portrait: true },
-  { image: 'DddjVAjzaOaICmhwEZm9Yrn2g.jpg', title: 'Shubham Sharma — tech & creativity', youtube: 'VTJMOtnq-tA' },
-  { image: 'WRrj8EtZ8QqLAMOE2UDB119dlII.png', title: 'A different angle', portrait: true },
-  { image: '6SXNB7Y0bwONxKLPPiz71Rsx4M.png', title: 'Production & storytelling', youtube: 'bgNsTi6GbiM' },
-  { image: 'nFwIKRz21HsXrPB5DiH73PuxfF4.png', title: 'Punchy short-formats', portrait: true },
-  { image: '8Ck5k19ckft2IfR2vA2c8mqkMs.png', title: 'Cinema-grade quality', youtube: '9rVBVww5OwQ' },
+  { id: '1mJ6dZyxdUCfpvNQ2922ifk9TEvncTph6', title: 'Tum — music reel', portrait: true },
+  { id: '1Rz7xQs--SGcGh8dwsbLsjOyeolKPGgtn', title: 'Renu & Sandeep — 25 years' },
+  { id: '1S8qZvpklGMRJGy-jK_3wbain8qxGfUa8', title: 'Riteish × Mastercard', portrait: true },
+  { id: '1LBPCgNbL89n0SzYvC2wkY1EbKDoLgxv5', title: '2025 — year in review' },
+  { id: '1nW7VZ6i1HKLGRqq1K7hTJyBrn8We9Zy1', title: 'Ajay Devgn × Summercool', portrait: true },
+  { id: '1YjC8ftMJ1-IIiFtERand-Imr4KM9DJff', title: 'Harsh Poriwal — podcast' },
 ];
 
 export type ProcessStep = {

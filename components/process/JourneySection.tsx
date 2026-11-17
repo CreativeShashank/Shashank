@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Mic, MicOff, Video, PhoneOff, Search, Bell, ThumbsUp, ThumbsDown, Share2 } from 'lucide-react';
 import { BRAND } from '@/data/brand';
+import { driveThumbnailUrl } from '@/data/drive';
 import './journey.css';
 
 type JourneyStep = {
@@ -114,8 +115,8 @@ function FrameMock() {
       <div className="j-frame-head"><span>‹</span> FirstCut_v1.mp4</div>
       <div className="j-frame-video">
         <img
-          src="https://framerusercontent.com/images/DddjVAjzaOaICmhwEZm9Yrn2g.jpg?scale-down-to=1024"
-          alt="Air fryer review edit in Frame.io"
+          src={driveThumbnailUrl('1LBPCgNbL89n0SzYvC2wkY1EbKDoLgxv5', 1200)}
+          alt="First cut in review"
         />
         <svg className="j-arrow" viewBox="0 0 120 60" aria-hidden="true">
           <line x1="8" y1="8" x2="92" y2="44" stroke="#ff1f3d" strokeWidth="7" />
@@ -142,12 +143,12 @@ function YoutubeMock() {
       </div>
       <div className="j-yt-player">
         <img
-          src="https://framerusercontent.com/images/DddjVAjzaOaICmhwEZm9Yrn2g.jpg?scale-down-to=1024"
-          alt="Published air fryer comparison video"
+          src={driveThumbnailUrl('1nreeKRxVCUzmfETEkNgKype4m9p-MVy0', 1200)}
+          alt="Published client video"
         />
         <span className="j-yt-progress"><i /></span>
       </div>
-      <div className="j-yt-title">Is the most expensive air fryer really the best?</div>
+      <div className="j-yt-title">Kirti — wedding highlight</div>
       <div className="j-yt-row">
         <span className="j-yt-chan"><span className="j-avatar sm">C</span><b>Client Channel<small>1.23M subscribers</small></b></span>
         <span className="j-yt-sub"><Bell size={13} /> Subscribed</span>
