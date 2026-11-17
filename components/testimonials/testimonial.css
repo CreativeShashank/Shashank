@@ -6,7 +6,8 @@
 .testimonial-view{background:#141513;border:1px solid #ffffff1c;color:#fff;border-radius:30px;padding:12px 22px;font-size:14px;white-space:nowrap}
 .testimonial-view:hover{background:#1e1f1c}
 .testimonial-card{position:relative;max-width:1200px;margin:0 auto;border-radius:22px;overflow:hidden;border:1px solid #ffffff14;box-shadow:0 60px 140px #000000cc;transform-origin:50% 100%}
-.testimonial-card img{width:100%;height:clamp(320px,52vw,560px);object-fit:cover;display:block;filter:brightness(.82)}
+.testimonial-card img,
+.testimonial-card video{width:100%;height:clamp(320px,52vw,560px);object-fit:cover;display:block;filter:brightness(.82)}
 .testimonial-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#00000088 0%,transparent 35%,transparent 70%,#00000055 100%)}
 .testimonial-brand{position:absolute;top:22px;left:26px;z-index:2;display:flex;flex-direction:column}
 .testimonial-brand strong{font-size:20px;letter-spacing:.5px}

@@ -13,7 +13,14 @@ export default function VideoCard({ film }: { film: Film }) {
         className={'wall-card ' + (film.portrait ? 'portrait' : 'landscape')}
         aria-label={'Watch: ' + film.title}
       >
-        <img src={poster} alt={film.title} loading="lazy" />
+        <video
+          className="wall-thumb"
+          src={driveFrameUrl(film.id, 6)}
+          preload="metadata"
+          muted
+          playsInline
+          aria-label={film.title}
+        />
         <span className="wall-card-hover">
           <span>
             <Play size={24} fill="currentColor" />
@@ -33,7 +40,6 @@ export default function VideoCard({ film }: { film: Film }) {
           </Dialog.Description>
           <video
             src={driveVideoUrl(film.id)}
-            poster={poster}
             title={film.title}
             controls
             autoPlay

@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Mic, MicOff, Video, PhoneOff, Search, Bell, ThumbsUp, ThumbsDown, Share2 } from 'lucide-react';
 import { BRAND } from '@/data/brand';
-import { driveThumbnailUrl } from '@/data/drive';
+import { driveFrameUrl } from '@/data/drive';
 import './journey.css';
 
 type JourneyStep = {
@@ -114,9 +114,14 @@ function FrameMock() {
     <div className="j-mock j-frame">
       <div className="j-frame-head"><span>‹</span> FirstCut_v1.mp4</div>
       <div className="j-frame-video">
-        <img
-          src={driveThumbnailUrl('1LBPCgNbL89n0SzYvC2wkY1EbKDoLgxv5', 1200)}
-          alt="First cut in review"
+        <video
+          src={driveFrameUrl('1LBPCgNbL89n0SzYvC2wkY1EbKDoLgxv5', 6)}
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="metadata"
+          aria-label="First cut in review"
         />
         <svg className="j-arrow" viewBox="0 0 120 60" aria-hidden="true">
           <line x1="8" y1="8" x2="92" y2="44" stroke="#ff1f3d" strokeWidth="7" />
@@ -142,9 +147,14 @@ function YoutubeMock() {
         <span className="j-yt-search"><Search size={14} /> Search</span>
       </div>
       <div className="j-yt-player">
-        <img
-          src={driveThumbnailUrl('1nreeKRxVCUzmfETEkNgKype4m9p-MVy0', 1200)}
-          alt="Published client video"
+        <video
+          src={driveFrameUrl('1nreeKRxVCUzmfETEkNgKype4m9p-MVy0', 6)}
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="metadata"
+          aria-label="Published client video"
         />
         <span className="j-yt-progress"><i /></span>
       </div>

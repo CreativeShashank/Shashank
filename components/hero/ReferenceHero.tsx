@@ -5,10 +5,9 @@ import { Play, Pause, Info, Clock3, Download, Monitor, SlidersHorizontal, Globe,
 import './reference-hero.css';
 import { BRAND } from '@/data/brand';
 import { reel } from '@/data/site';
-import { driveThumbnailUrl, driveVideoUrl } from '@/data/drive';
+import { driveFrameUrl } from '@/data/drive';
 
-const film = driveVideoUrl(reel.id);
-const poster = driveThumbnailUrl(reel.id, 1600);
+const film = driveFrameUrl(reel.id, 3);
 const comments = [
   ['03:12', 'Love this transition!'],
   ['06:54', 'Can we punch up the subtitles here?'],
@@ -151,7 +150,6 @@ export default function ReferenceHero({ cta }: { cta: React.ReactNode }) {
             <video
               ref={video}
               src={film}
-              poster={poster}
               onLoadedMetadata={() => {
                 if (video.current) video.current.currentTime = Math.min(3, video.current.duration);
               }}

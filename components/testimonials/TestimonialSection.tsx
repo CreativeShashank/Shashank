@@ -6,11 +6,10 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { Pause, Play, X, VolumeX } from 'lucide-react';
 import Reveal from '../ui/Reveal';
 import { BRAND } from '@/data/brand';
-import { driveThumbnailUrl, driveVideoUrl } from '@/data/drive';
+import { driveFrameUrl, driveVideoUrl } from '@/data/drive';
 import './testimonial.css';
 
 const TESTIMONIAL_ID = '1dwkKdYXXhHRzq0e4W9W4DF-pGde2mMpc';
-const poster = driveThumbnailUrl(TESTIMONIAL_ID, 1200);
 
 export default function TestimonialSection() {
   const ref = useRef<HTMLElement>(null);
@@ -44,7 +43,6 @@ export default function TestimonialSection() {
               </Dialog.Description>
               <video
                 src={driveVideoUrl(TESTIMONIAL_ID)}
-                poster={poster}
                 title="Preeti Jhangiani promo reel"
                 controls
                 autoPlay
@@ -56,7 +54,15 @@ export default function TestimonialSection() {
       </div>
 
       <motion.div className="testimonial-card" style={reduced ? {} : { rotate: tilt, y: rise }}>
-        <img src={poster} alt="Preeti Jhangiani promo reel" />
+        <video
+          src={driveFrameUrl(TESTIMONIAL_ID, 6)}
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="metadata"
+          aria-label="Preeti Jhangiani promo reel"
+        />
         <span className="testimonial-brand">
           <strong>PREETI</strong>
           <small>Edited by {BRAND.name}</small>
